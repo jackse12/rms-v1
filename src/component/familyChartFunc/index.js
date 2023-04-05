@@ -152,6 +152,7 @@ function FeatureFunc() {
     setModalVisibility(visibility)
   }
 
+  console.log("modalVisibility", modalVisibility)
  
 
   function customAddBtn(card_dim) {
@@ -203,7 +204,7 @@ function FeatureFunc() {
       </div>
       {/* </div> */}
       <div className=" absolute z-50 ">
-        <Modal visibility={modalVisibility}  onClose={()=>{handleModal("close")}} />
+        <Modal visibility={modalVisibility}  onClose={()=>{handleModal("close")}} onOk={()=>{handleModal("close")}} />
       </div>
     </div>
   )
