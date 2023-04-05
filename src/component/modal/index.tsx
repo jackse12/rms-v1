@@ -88,20 +88,20 @@ export default function Modal({
                 </svg>
               </button>
             </div>
-            <div className="modal-body">{body}</div>
+            <div className="modal-body" id="form_modal">{body}</div>
             <div className="flex justify-end pt-2">
-              <button
+              {/* <button
                 className="px-4 bg-transparent p-3 rounded-lg text-blue-500 hover:bg-gray-100 hover:text-blue-400 mr-2"
                 onClick={handleOk}
               >
                 OK
-              </button>
-              <button
+              </button> */}
+              {/* <button
                 className="modal-close px-4 bg-blue-500 p-3 rounded-lg text-white hover:bg-blue-400"
                 onClick={handleClose}
               >
                 Cancel
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
