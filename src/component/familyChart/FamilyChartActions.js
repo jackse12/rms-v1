@@ -49,6 +49,12 @@ export default class FamilyTree extends React.Component {
     function initProcess() {
       const cont = document.querySelector("#chart")
 
+      const handleModal = ()=>{
+        this.setState((prevState) => ({
+          modalVisibility: visibility,
+        }));
+      }
+    
 
 
       const card_dim = { w: 220, h: 70, text_x: 75, text_y: 15, img_w: 60, img_h: 60, img_x: 5, img_y: 5 }
@@ -153,11 +159,7 @@ export default class FamilyTree extends React.Component {
         ]
       }
 
-      function handleModal(visibility) {
-        // this.setState((prevState) => ({
-        //   modalVisibility: visibility,
-        // }));
-      }
+     
     
 
       const modal = document.body.appendChild(document.createElement("div"));

@@ -90,6 +90,8 @@ export function Card(props) {
       </defs>
     `))
 
+   
+
     function curvedRectPath(dim, curve, no_curve_corners) {
       const {w,h} = dim,
         c = curve,

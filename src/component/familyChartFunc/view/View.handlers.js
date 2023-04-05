@@ -6,7 +6,7 @@ export function setupSvg(svg, zoom_polite) {
   function setupZoom() {
     if (svg.__zoom) return
     const view = svg.querySelector('.view'),
-      zoom = d3.zoom().on("zoom", zoomed)
+      zoom = d3.zoom().extent([[0,0],[300,300]]).on("zoom", zoomed)
 
     d3.select(svg).call(zoom)
     svg.__zoomObj = zoom

@@ -6,9 +6,11 @@ import dataJson from './data.json';
 import * as d3 from "d3";
 
 import createStore from "./createStore";
+import handlers from "./handlers.js";
+import {Card as NewCard} from "./view/elements/Card.js";
 import d3AnimationView from "./view/View.d3Animation";
 import Modal from "@/component/modal";
-
+import { AddRelative } from "./handlers.js";
 
 
 function customAddBtnListener(store, props) {
@@ -19,6 +21,12 @@ function customAddBtnListener(store, props) {
 function FeatureFunc() {
   const contRef = useRef(null);
   const [modalVisibility, setModalVisibility] = useState("close")
+  const handleF3 = function() {
+    const chartElement = document.getElementById('chart');
+
+    // Get the chart instance from the element reference
+    const chartInstance = chartElement.chartInstance;
+  }.bind(this);
 
   useEffect(() => {
     if (!contRef.current) return;
@@ -65,7 +73,7 @@ function FeatureFunc() {
         cont: document.querySelector("#chart"),
         card_edit
       }),
-      Card = f3.elements.Card({
+      Card = NewCard({
         store,
         svg: view.svg,
         card_dim: {
@@ -83,7 +91,7 @@ function FeatureFunc() {
           (d) => `${d.data["birthday"] || ""}`
         ],
         cardEditForm,
-        addRelative: f3.handlers.AddRelative({ store, cont, card_dim, cardEditForm, labels: { mother: 'Add mother' } }),
+        addRelative: AddRelative({ store, cont, card_dim, cardEditForm, labels: { mother: 'Add mother' } }),
         mini_tree: true,
         link_break: false
       });
@@ -99,6 +107,8 @@ function FeatureFunc() {
     modal.setAttribute("class", "modal");
     // M.Modal.init(modal);
 
+    
+    handleF3()
 
 
   }
@@ -142,6 +152,8 @@ function FeatureFunc() {
     setModalVisibility(visibility)
   }
 
+ 
+
   function customAddBtn(card_dim) {
     return (`
         <g class="customAddBtn" style="cursor: pointer">
@@ -176,8 +188,11 @@ function FeatureFunc() {
     <div style={{ display: 'flex', justifyContent: 'flex-start', maxWidth: '100%', margin: 'auto' }}>
 
       <div className="row">
-        <div className="f3" id="chart" ref={contRef} style={{ position: 'relative' }}>
-        </div>
+        <div className="f3" id="chart" ref={contRef} style={{ position: 'absolute' }}>
+        </div>  
+        
+        {/* <div className="f3" id="chart" ref={contRef} style={{ position: 'relative' }}>
+        </div> */}
 
       </div>
       <div id="form-data" className="modal">

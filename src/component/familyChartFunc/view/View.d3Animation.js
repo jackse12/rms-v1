@@ -118,17 +118,17 @@ export default function d3AnimationView({ store, cont, Card }) {
 
   function createSvg() {
     // const svg_dim = '1500',
-    // const svg_dim = {
-    //   "x": 500,
-    //   "y": 0,
-    //   "width": 1900,
-    //   "height": 683.2000122070312,
-    //   "top": 0,
-    //   "right": 0,
-    //   "bottom": 683.2000122070312,
-    //   "left": 0
-    // },
-      const svg_dim = cont.getBoundingClientRect(),
+    const svg_dim = {
+      "x": 500,
+      "y": 0,
+      "width": 1900,
+      "height": 683.2000122070312,
+      "top": 0,
+      "right": 0,
+      "bottom": 683.2000122070312,
+      "left": 0
+    },
+      // const svg_dim = cont.getBoundingClientRect(),
 
       // <rect width="${svg_dim.width}" height="${svg_dim.height}" fill="transparent" />
 
@@ -148,33 +148,33 @@ export default function d3AnimationView({ store, cont, Card }) {
       //   </g>
       // </svg>
       svg_html = (`
-      <svg class="main_svg">
-      <rect width="${svg_dim.width}" height="${svg_dim.height}" fill="transparent" />
-      <g class="view">
-        <g class="links_view"></g>
-        <g class="cards_view"></g>
-      </g>
-      <g style="transform: translate(100vw, 100vw)">
-        <g class="fit_screen_icon cursor-pointer" style="transform: translate(-50px, -50px); display: none">
-          <rect width="27" height="27" stroke-dasharray="${27 / 2}" stroke-dashoffset="${27 / 4}" 
-            style="stroke:#fff;stroke-width:4px;fill:transparent;"/>
-          <circle r="5" cx="${27 / 2}" cy="${27 / 2}" style="fill:#fff" />          
-        </g>
-      </g>
-    </svg>
+      <svg class="main_svg" >
+        <rect x="0" y="0" width="100%" height="100%"  fill="transparent" />
+          <g class="view">
+            <g class="links_view"></g>
+            <g class="cards_view"></g>
+          </g>
+          <g style="transform: translate(100%, 100%)">
+            <g class="fit_screen_icon cursor-pointer" style="transform: translate(-50px, -50px); display: none">
+              <rect width="100" height="100" stroke-dasharray="${27/2}" stroke-dashoffset="${27/4}" 
+                style="stroke:#fff;stroke-width:4px;fill:transparent;"/>
+              <circle r="5" cx="${27/2}" cy="${27/2}" style="fill:#fff" />          
+            </g>
+          </g>
+        </svg>
       `)
 
-    // <svg class="main_svg" >
-    // <rect x="0" y="0" width="${svg_dim.width}" height="${svg_dim.height}"  fill="transparent" />
+    // <svg class="main_svg">
+    //   <rect width="${svg_dim.width}" height="${svg_dim.height}" fill="transparent" />
     //   <g class="view">
     //     <g class="links_view"></g>
     //     <g class="cards_view"></g>
     //   </g>
-    //   <g style="transform: translate(100%, 100%)">
+    //   <g style="transform: translate(100vw, 100vw)">
     //     <g class="fit_screen_icon cursor-pointer" style="transform: translate(-50px, -50px); display: none">
-    //       <rect width="100" height="100" stroke-dasharray="${27/2}" stroke-dashoffset="${27/4}" 
+    //       <rect width="27" height="27" stroke-dasharray="${27 / 2}" stroke-dashoffset="${27 / 4}" 
     //         style="stroke:#fff;stroke-width:4px;fill:transparent;"/>
-    //       <circle r="5" cx="${27/2}" cy="${27/2}" style="fill:#fff" />          
+    //       <circle r="5" cx="${27 / 2}" cy="${27 / 2}" style="fill:#fff" />          
     //     </g>
     //   </g>
     // </svg>
@@ -184,7 +184,9 @@ export default function d3AnimationView({ store, cont, Card }) {
     fake_cont.innerHTML = svg_html
     const svg = fake_cont.firstElementChild
     cont.innerHTML = ""
-    cont.appendChild(svg)
+      cont.appendChild(svg)
+    
+    // svg.interrupt()
 
     return svg
   }
