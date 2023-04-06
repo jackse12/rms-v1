@@ -85,7 +85,7 @@ export function Form({datum, rel_datum, store, rel_type, card_edit, postSubmit, 
         name="${d.key}"
         placeholder="${d.placeholder}"
         value="${datum.data[d.key] || ''}"
-         class="w-full px-4 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Enter your text here">
+         class="w-full px-4 py-2 bg-white text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" placeholder="Enter your text here">
         `
         // ? `<input type="text" name="${d.key}" placeholder="${d.placeholder}" value="${datum.data[d.key] || ''}">`
         : d.type === 'textarea'
