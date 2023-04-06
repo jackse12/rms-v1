@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { saveFamilyForm } from "../handlers.js";
 import {
   addNewPerson,
@@ -113,7 +114,9 @@ export default function View(tree, {store, data_stash, cont, datum, card_dim, ca
           addNewPerson({data_stash, datum: new_datum})
           handleRelsOfNewDatum({datum: new_datum, data_stash, rel_datum, rel_type})
           store.update.tree();
-          console.log("postSubmit 1")
+          
+          saveFamilyForm( _.get(store, "state.data"), "POST")
+          console.log("new_datum 1", _.get(store, "state.data"))
         }
         // console.log("datum", new_datum)
         // await saveFamilyForm(datum, "POST")

@@ -1,3 +1,4 @@
+
 import {generateUUID, removeToAdd, saveFamilyForm} from "./general.js";
 
 export function handleRelsOfNewDatum({datum, data_stash, rel_type, rel_datum}) {
@@ -87,8 +88,7 @@ export function createNewPersonWithGenderFromRel({data, rel_type, rel_datum}) {
 }
 
 export  function addNewPerson({data_stash, datum}) {
-   saveFamilyForm(datum, "POST")
-  console.log('Add', datum)
+  
   data_stash.push(datum)
 }
 
@@ -99,4 +99,5 @@ export function createTreeDataWithMainNode({data, version}) {
 export function addNewPersonAndHandleRels({datum, data_stash, rel_type, rel_datum}) {
   addNewPerson({data_stash, datum})
   handleRelsOfNewDatum({datum, data_stash, rel_type, rel_datum})
+  
 }

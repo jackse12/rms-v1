@@ -31,7 +31,7 @@ export default function createStore(initial_state) {
   // };
 
   function calcTree() {
-    // console.log("This is it",state.data)
+    console.log("This is it",state.data)
     localStorage.setItem('treeData', JSON.stringify(state.data));
     // submitForm(state.data)
     return CalculateTree({

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import f3 from "family-chart";
 import { Form } from "./view/elements/Form.js"
 import axios from 'axios';
-import dataJson from './data.json';
+// import dataJson from './data.json';
 import * as d3 from "d3";
 
 import createStore from "./createStore";
@@ -18,7 +18,7 @@ function customAddBtnListener(store, props) {
   console.log(props.d)
 }
 
-function FeatureFunc() {
+function FeatureFunc({dataJson}) {
   const contRef = useRef(null);
   const [modalVisibility, setModalVisibility] = useState("close")
   const handleF3 = function() {
@@ -32,21 +32,25 @@ function FeatureFunc() {
     if (!contRef.current) return;
 
 
-    let dataTree = dataJson
-    let localTree = localStorage.getItem('treeData')
-    if (localTree === null) {
+    // let dataTree = dataJson
+    // let localTree = localStorage.getItem('treeData')
+    // if (localTree === null) {
 
-      // console.log("NOt retain")
-      localStorage.setItem('treeData', JSON.stringify(dataJson));
-    } else {
-      // console.log("reteain")
-      dataTree = localStorage.getItem('treeData');
-      dataTree = JSON.parse(dataTree)
-    }
+    //   // console.log("NOt retain")
+    //   localStorage.setItem('treeData', JSON.stringify(dataJson));
+    // } else {
+    //   // console.log("reteain")
+    //   dataTree = localStorage.getItem('treeData');
+    //   dataTree = JSON.parse(dataTree)
+    // }
 
     initProcess()
 
+   
   }, [])
+
+
+   
 
 
   function initProcess() {
@@ -209,3 +213,4 @@ function FeatureFunc() {
 }
 
 export default FeatureFunc
+

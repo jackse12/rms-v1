@@ -8,13 +8,12 @@ export async function saveFamilyForm (data, method){
     body: JSON.stringify(data),
   });
   res = await res.json();
+
+  return res;
  console.log("res", res)
 };
 
 export async function moveToAddToAdded(datum, data_stash) {
-  console.log("Add", datum)
-
-  // await saveFamilyForm(datum, "POST")
 
   delete datum.to_add
   return datum
