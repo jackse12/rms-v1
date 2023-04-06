@@ -1,4 +1,4 @@
-import {generateUUID, removeToAdd} from "./general.js";
+import {generateUUID, removeToAdd, saveFamilyForm} from "./general.js";
 
 export function handleRelsOfNewDatum({datum, data_stash, rel_type, rel_datum}) {
   if (rel_type === "daughter" || rel_type === "son") addChild(datum)
@@ -86,7 +86,9 @@ export function createNewPersonWithGenderFromRel({data, rel_type, rel_datum}) {
   }
 }
 
-export function addNewPerson({data_stash, datum}) {
+export  function addNewPerson({data_stash, datum}) {
+   saveFamilyForm(datum, "POST")
+  console.log('Add', datum)
   data_stash.push(datum)
 }
 

@@ -2,12 +2,27 @@ import d3 from "../d3.js"
 import {checkIfRelativesConnectedWithoutPerson} from "./checkIfRelativesConnectedWithoutPerson.js"
 import {createTreeDataWithMainNode} from "./newPerson.js"
 
-export function moveToAddToAdded(datum, data_stash) {
+export async function saveFamilyForm (data, method){
+  let res = await fetch("http://localhost:3000/api/services/familydata", {
+    method: method,
+    body: JSON.stringify(data),
+  });
+  res = await res.json();
+ console.log("res", res)
+};
+
+export async function moveToAddToAdded(datum, data_stash) {
+  console.log("Add", datum)
+
+  // await saveFamilyForm(datum, "POST")
+
   delete datum.to_add
   return datum
 }
 
 export function removeToAdd(datum, data_stash) {
+  console.log("remove", datum)
+  saveFamilyForm(datum, "DELETE")
   deletePerson(datum, data_stash)
   return false
 }

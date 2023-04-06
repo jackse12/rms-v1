@@ -1,6 +1,6 @@
 import {toggleAllRels, toggleRels} from "../CalculateTree/CalculateTree.handlers.js"
 import AddRelativeTree from "../AddRelativeTree/AddRelativeTree.js"
-import {deletePerson, moveToAddToAdded} from "./general.js"
+import {deletePerson, moveToAddToAdded, saveFamilyForm} from "./general.js"
 
 export function cardChangeMain(store, {card, d}) {
   toggleAllRels(store.getTree().data, false)
@@ -12,10 +12,12 @@ export function cardChangeMain(store, {card, d}) {
 export function cardEdit(store, {card, d, cardEditForm}) {
   const datum = d.data,
     postSubmit = (props) => {
-      console.log("postSubmit 2")
+      console.log("update", d.data)
+      saveFamilyForm(d.data, "PATCH")
       if (datum.to_add) moveToAddToAdded(datum, store.getData())
       if (props && props.delete) {
         if (datum.main) store.update.mainId(null)
+        saveFamilyForm(d.data, "DELETE")
         deletePerson(datum, store.getData())
       }
       store.update.tree()
@@ -33,7 +35,6 @@ export function cardEdit(store, {card, d, cardEditForm}) {
       
       // }
 
-      console.log("store.getData()")
     }
   cardEditForm({datum, postSubmit, store})
 }

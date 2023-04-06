@@ -1,3 +1,4 @@
+import { saveFamilyForm } from "../handlers.js";
 import {
   addNewPerson,
   createNewPersonWithGenderFromRel,
@@ -101,7 +102,7 @@ export default function View(tree, {store, data_stash, cont, datum, card_dim, ca
       handleCardClick(node) || view.remove()
     })
 
-    function handleCardClick(node) {
+    async function handleCardClick(node) {
       if (!node.closest('.card')) return
       const card = node.closest('.card'),
         rel_type = card.getAttribute("data-rel_type"),
@@ -114,7 +115,8 @@ export default function View(tree, {store, data_stash, cont, datum, card_dim, ca
           store.update.tree();
           console.log("postSubmit 1")
         }
-        console.log("datum", new_datum)
+        // console.log("datum", new_datum)
+        // await saveFamilyForm(datum, "POST")
       cardEditForm({datum: new_datum, rel_datum, rel_type, postSubmit, store})
       return true
     }

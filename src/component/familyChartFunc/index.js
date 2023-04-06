@@ -36,10 +36,10 @@ function FeatureFunc() {
     let localTree = localStorage.getItem('treeData')
     if (localTree === null) {
 
-      console.log("NOt retain")
+      // console.log("NOt retain")
       localStorage.setItem('treeData', JSON.stringify(dataJson));
     } else {
-      console.log("reteain")
+      // console.log("reteain")
       dataTree = localStorage.getItem('treeData');
       dataTree = JSON.parse(dataTree)
     }
@@ -119,7 +119,6 @@ function FeatureFunc() {
     const postSubmit = props.postSubmit;
     props.postSubmit = (ps_props) => {
       postSubmit(ps_props)
-      console.log("ps_props", postSubmit)
     }
     const el = document.querySelector('#form_modal')
     //   modal = M.Modal.getInstance(el),
@@ -152,7 +151,6 @@ function FeatureFunc() {
     setModalVisibility(visibility)
   }
 
-  console.log("modalVisibility", modalVisibility)
  
 
   function customAddBtn(card_dim) {
