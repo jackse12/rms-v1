@@ -11,7 +11,7 @@ const Login = () => {
   const { data: session } = useSession();
 
   const handleLogin = async () => {
-    const result = await signIn("google", { callbackUrl: "/" });
+    const result = await signIn("google", { callbackUrl: "/dashboard" });
    
   };
 

@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/hoc/withAuth.js", "src/pages/feature-func/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/hoc/withAuth.js", "src/pages/feature/index.js"],
   "exclude": ["node_modules"]
 }
