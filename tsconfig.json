@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/hoc/withAuth.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/hoc/withAuth.js", "src/pages/feature/index.js", "src/pages/api/services/familydata.js"],
   "exclude": ["node_modules"]
 }
