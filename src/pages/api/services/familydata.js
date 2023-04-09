@@ -16,6 +16,10 @@ export default async function handler(req, res) {
             let bodyUpdateObject = JSON.parse(req.body);
             await db.collection("family").deleteOne({ id: bodyUpdateObject?.id })
 
+            if(bodyUpdateObject.to_add){
+            delete bodyUpdateObject.to_add
+            }
+
             let famDataUpdate = await db.collection("family").insertOne(bodyUpdateObject);
             res.json(famDataUpdate);
             break;

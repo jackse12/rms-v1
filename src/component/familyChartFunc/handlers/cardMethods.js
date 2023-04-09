@@ -17,7 +17,8 @@ export function cardEdit(store, {card, d, cardEditForm}) {
       if (datum.to_add) moveToAddToAdded(datum, store.getData())
       if (props && props.delete) {
         if (datum.main) store.update.mainId(null)
-        saveFamilyForm(d.data, "DELETE")
+        console.log("delete", datum)
+        // saveFamilyForm(d.data, "DELETE")
         deletePerson(datum, store.getData())
       }
       store.update.tree()

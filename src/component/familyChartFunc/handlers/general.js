@@ -45,6 +45,11 @@ export function deletePerson(datum, data_stash) {
     data_stash.splice(data_stash.findIndex(d => d.id === datum.id), 1)
     data_stash.forEach(d => {if (d.to_add) deletePerson(d, data_stash)})  // full update of tree
     if (data_stash.length === 0) data_stash.push(createTreeDataWithMainNode({}).data[0])
+
+    if(data_stash){
+      saveFamilyForm(data_stash, "POST")
+    }
+    console.log("data_stash", data_stash)
   }
 }
 
