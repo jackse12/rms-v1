@@ -3,14 +3,13 @@ import {checkIfRelativesConnectedWithoutPerson} from "./checkIfRelativesConnecte
 import {createTreeDataWithMainNode} from "./newPerson.js"
 
 export async function saveFamilyForm (data, method){
-  let res = await fetch("http://localhost:3000/api/services/familydata", {
+  let res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/services/familydata`, {
     method: method,
     body: JSON.stringify(data),
   });
   res = await res.json();
 
   return res;
- console.log("res", res)
 };
 
 export async function moveToAddToAdded(datum, data_stash) {
