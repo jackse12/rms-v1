@@ -10,7 +10,7 @@ function FeatureFuncIndex() {
 
   async function fetchData() {
     try {
-      const response = await axios.get('http://localhost:3000/api/services/familydata');
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/services/familydata`);
 
       setDataTree(_.get(response, "data.data"))
     } catch (error) {
