@@ -3,8 +3,8 @@ import GoogleProvider from 'next-auth/providers/google';
 export const authOptions = {
  providers: [
   GoogleProvider({
-   clientId: process.env.GOOGLE_ID,
-   clientSecret: process.env.GOOGLE_SECRET,
+   clientId: "4520876795-7naeo7cesolt1dgb61mm74j3c35352b4.apps.googleusercontent.com",
+   clientSecret: "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",
   }),
  ],
  session: {
